@@ -1,0 +1,42 @@
+{
+    "name": "pinny",
+    "version": "1.0.0",
+    "description": "Pinny is a unique CRM",
+    "main": "app.js",
+    "scripts": {
+        "start": "nodemon app npm run init:sass",
+        "init:sass": "node-sass interface/public/sass/main.sass interface/public/css/style.css -w"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/diazrma/pinny.git"
+    },
+    "keywords": [
+        "CRM"
+    ],
+    "author": "Rodrigo Cardoso",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/diazrma/pinny/issues"
+    },
+    "homepage": "https://github.com/diazrma/pinny#readme",
+    "devDependencies": {
+        "nodemon": "^2.0.7"
+    },
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "bootstrap": "^4.6.0",
+        "dotenv-safe": "^8.2.0",
+        "express": "^4.17.1",
+        "jquery": "^3.5.1",
+        "jsonwebtoken": "^8.5.1",
+        "lodash": "^4.17.21",
+        "lodash-id": "^0.14.0",
+        "lowdb": "^1.0.0",
+        "md5": "^2.3.0",
+        "moment": "^2.29.1",
+        "node-sass": "^5.0.0",
+        "nunjucks": "^3.2.2",
+        "popper.js": "^1.16.1"
+    }
+}

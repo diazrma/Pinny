@@ -1,0 +1,20 @@
+{
+  "customers": [
+    {
+      "name": "Rodrigo",
+      "contact": "(47) 3642-2122",
+      "email": "rodrigo@hibrido.com.br",
+      "origin": "",
+      "created_at": "03/18/2021",
+      "id": "33258cb2-62a4-4ad1-9de3-a6e57bff13c9"
+    },
+    {
+      "name": "Rodrigo Cardoso",
+      "contact": "(47) 3642-2122",
+      "email": "diazrma@gmail.com",
+      "origin": "Facebook",
+      "created_at": "03/18/2021",
+      "id": "119ac335-c100-452e-9e61-b845fc45bc55"
+    }
+  ]
+}
