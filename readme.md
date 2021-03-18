@@ -2,7 +2,7 @@
 ## Pinny é uma platafoma para Gestão de relacionamento com o cliente
 
 - Não precisa de uma conexão com um banco de dados externo
-- Utiliza LOWDB banco de dados é um banco de dados baseado em JSON
+- Utiliza LOWDB uma nova forma de gerenciar banco de dados no estilo JSON
 - ✨is Magic✨
 
 ## Features
