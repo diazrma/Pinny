@@ -8,7 +8,7 @@
 ## Features
 
 - Cadastro de clientes
-- Relatórios semanais, mensais e anuails
+- Relatórios semanal, mensal e anual
 - Gráficos em tempo real
 - Exportação em PDF e envio por e-mail
 
