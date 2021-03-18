@@ -16,7 +16,7 @@
 
 Pinny utiliza vários projetos de código aberto para funcionar corretamente:
 
-- [NODEJS] - Rode seus porjetos no lado cliente e servidor!
+- [NODEJS] - Rode seus projetos no lado cliente e servidor!
 
 ## Instalação
 
