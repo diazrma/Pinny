@@ -1,9 +1,6 @@
 # Pinny CRM
 ## Pinny é uma platafoma para Gestão de relacionamento com o cliente
 
-A plataforma foi desenvolvida com as principais técnologias:
-NODEJS, LOWDB, EXPRESS, BOOTSTRAP, SOCKET.IO
-
 - Não precisa de uma conexão com um banco de dados externo
 - Utiliza LOWDB banco de dados é um banco de dados baseado em JSON
 - ✨is Magic✨
