@@ -1,0 +1,15 @@
+{
+    "name": "Pinny",
+    "short_name": "Pinny",
+    "theme_color": "#222831",
+    "background_color": "#dc3545",
+    "display": "standalone",
+    "Scope": "",
+    "start_url": "../",
+    "icons": [{
+        "src": "assets/logo.png",
+        "sizes": "64x64",
+        "type": "image/png"
+
+    }]
+}

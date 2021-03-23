@@ -2,12 +2,13 @@
 
 require("dotenv-safe").config();
 
-const db = require("./config/database");
+const db = require("./Config/database");
 const express = require('express');
 const nunjucks = require('nunjucks');
 const path = require('path');
 const bodyParser = require('body-parser');
 const app = express();
+const router = express.Router();
 const port = process.env.PORT;
 
 nunjucks.configure(path.join(__dirname, 'Views'), {
@@ -15,7 +16,7 @@ nunjucks.configure(path.join(__dirname, 'Views'), {
     express: app
 })
 
-app.use(bodyParser.json());
+
 
 app.use('/public', express.static(path.join(__dirname, '/public')));
 app.use('/css', express.static(path.join(__dirname, '../node_modules/bootstrap/dist/css')));
@@ -25,19 +26,12 @@ app.listen(port, () => console.log(`http://${process.env.HOSTNAME}:${port}`));
 
 
 //routes
+const loginRoute = require('./Routes/login-route');
 const customerRoute = require('./Routes/customer-route');
 
 
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
-app.use(bodyParser.json({
-
-    limit: '5mb'
-}));
-
-
-
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.get('/', function(req, res, next) {
     let data = {
         title: process.env.APP,
@@ -49,15 +43,24 @@ app.get('/', function(req, res, next) {
 
 
 
-app.get('/dashboard', function(req, res, next) {
+app.get('/home', function(req, res, next) {
     let data = {
-        content: 'Hello world!',
         title: process.env.APP,
         customers: db.get('customers').value()
     }
 
-    res.render('dashboard.njk', data);
+    res.render('home.njk', data);
 })
 
+// Habilita o CORS
+app.use(function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, x-access-token');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    next();
+});
 
+app.use('/api/login', loginRoute);
 app.use('/api/customer', customerRoute);
+
+module.exports = app;

@@ -1,20 +1,16 @@
 {
   "customers": [
     {
-      "name": "Rodrigo",
-      "contact": "(47) 3642-2122",
-      "email": "rodrigo@hibrido.com.br",
-      "origin": "",
       "created_at": "03/18/2021",
-      "id": "33258cb2-62a4-4ad1-9de3-a6e57bff13c9"
-    },
+      "id": "ba4fad52-131c-43d1-b2c7-4f19b8c8cf66"
+    }
+  ],
+  "users": [
     {
-      "name": "Rodrigo Cardoso",
-      "contact": "(47) 3642-2122",
-      "email": "diazrma@gmail.com",
-      "origin": "Facebook",
-      "created_at": "03/18/2021",
-      "id": "119ac335-c100-452e-9e61-b845fc45bc55"
+      "id": "dcb5563c-1866-4c5a-9441-ceafb811c739",
+      "username": "admin",
+      "password": "827ccb0eea8a706c4c34a16891f84e7b",
+      "created_at": "03/18/2021"
     }
   ]
 }

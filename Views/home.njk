@@ -171,7 +171,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> <script src="./public/js/validation.js"></script>
 
             <script src="https://code.jquery.com/jquery-3.2.1.min.js" ></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
@@ -183,88 +183,91 @@
             <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
             <script src="./public/js/auth.js"></script>
             <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+            
+              <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
 
-            <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+              <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
 
-            <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
+              <script>
 
-            <script>
-
-              $(document).ready(function () {
-                 $('#customer').DataTable({
-                  responsive: true,
-                  language: {
-                    url: './public/js/PT_BR.json'
-                  }
-                });
-              });
-            </script>
-            <script>
-
-              $('#newCustomer').on('click', function (ev) {
-                $('#customerModal').modal('show');
-              });
-              $('#saveCustomer').on('click', function () {
-
-                let form = $("#formCustomer");
-                let url = form.attr('action');
-                if ($('#email').val() !== "") {
-                  $.ajax({
-                    type: "POST",
-                    url: url,
-                    data: form.serialize(),
-                    success: function (data) {
-                      if (data) {
-                        $('#customerModal').modal('toggle');
-                        window
-                          .location
-                          .reload();
-                      } else {
-
-                        alertify.warning('Cliente já cadastrado');
-
-                      }
+                $(document).ready(function () {
+                  $('#customer').DataTable({
+                    responsive: true,
+                    language: {
+                      url: './public/js/PT_BR.json'
                     }
                   });
-                } else {
-                  alertify.warning('Campo e-mail é obrigatório');
-                }
-              });
-            </script>
-            <script>
-              function removeCustomer(uid) {
-console.log(uid)
-                alertify
-                  .confirm('Remover Cliente', 'Você realmente deseja excluir ?', function () {
+                });
+              </script>
+              <script>
 
-                    let form = $("#formCustomer");
-                    let url = form.attr('action');
+                $('#newCustomer').on('click', function (ev) {
+                  $('#customerModal').modal('show');
+                });
+                $('#saveCustomer').on('click', function () {
 
+                  let form = $("#formCustomer");
+                  let url = form.attr('action');
+                  if ($('#email').val() !== "") {
                     $.ajax({
-                      type: "delete",
+                      type: "POST",
                       url: url,
-                      data: {
-                        id: uid
-                      },
+                      headers: {
+                        "x-access-token": localStorage.getItem("token"),
+                        },
+                      data: form.serialize(),
                       success: function (data) {
                         if (data) {
+                          $('#customerModal').modal('toggle');
                           window
                             .location
                             .reload();
+                        } else {
+
+                          alertify.warning('Cliente já cadastrado');
+
                         }
                       }
                     });
+                  } else {
+                    alertify.warning('Campo e-mail é obrigatório');
+                  }
+                });
+              </script>
+              <script>
+                function removeCustomer(uid) {
 
-                  }, function () {
-                    alertify.error('Cancelado');
-                  })
-                  .set('labels', {
-                    ok: 'Sim',
-                    cancel: 'Cancelar'
-                  });
+                  alertify
+                    .confirm('Remover Cliente', 'Você realmente deseja excluir ?', function () {
 
-              }
-            </script>
-          </body>
+                      let form = $("#formCustomer");
+                      let url = form.attr('action');
 
-        </html>
+                      $.ajax({
+                        type: "delete",
+                        url: url,
+                        data: {
+                          id: uid
+                        },
+                        success: function (data) {
+                          if (data) {
+                            window
+                              .location
+                              .reload();
+                          }
+                        }
+                      });
+
+                    }, function () {
+                      alertify.error('Cancelado');
+                    })
+                    .set('labels', {
+                      ok: 'Sim',
+                      cancel: 'Cancelar'
+                    });
+
+                }
+              </script>
+            </body>
+
+          </html>
